@@ -1,0 +1,120 @@
+#include <iostream>
+using namespace std;
+
+class dot
+{
+private:
+    int x, y;
+
+public:
+    int *z;
+    const int t;
+    dot();          // Constructor
+    dot(int, int, int);  // Constructor
+    dot (const dot&); // Copy Constructor
+    ~dot();         // Destructor
+
+    int getX();
+    int getY();
+
+    void setX(int);
+    void setY(int);
+/////////////////////////////////////////////////////////////////////////////////
+
+    void assingValue(int _x, int _y)
+    {
+        x = _x;
+        y = _y;
+    }
+/////////////////////////////////////////////////////////////////////////////////
+
+    void writeScreen()
+    {
+        std::cout << x << "," << y << std::endl;
+    }
+/////////////////////////////////////////////////////////////////////////////////
+
+    bool zero()
+    {
+        if (x == 0 && y == 0)
+            return true;
+        else
+            return false;
+    }
+};
+
+/////////////////////////////////////////////////////////////////////////////////
+
+dot::dot() : t(0)
+{
+    cout << "constructor without parameter" << endl;
+    x = 22;
+    y = 1;
+    z = new int(5);
+}
+/////////////////////////////////////////////////////////////////////////////////
+
+dot::dot(int x, int y = 8, int t = 0) : t(t)
+{
+    this->x = x;
+    this->y = y;
+    cout << "constructor with parameter" << x << " " << y << endl;
+    z = new int(6);
+
+}
+/////////////////////////////////////////////////////////////////////////////////
+
+int dot::getX()
+{
+    return x;
+}
+/////////////////////////////////////////////////////////////////////////////////
+
+int dot::getY()
+{
+    return y;
+}
+/////////////////////////////////////////////////////////////////////////////////
+
+void dot::setX(int _x)
+{
+    x = _x;
+}
+/////////////////////////////////////////////////////////////////////////////////
+
+void dot::setY(int _y)
+{
+    y = _y;
+}
+/////////////////////////////////////////////////////////////////////////////////
+
+dot::dot(const dot& n) : t(n.t) {
+
+    x = n.x;
+    y = n.y;
+    z = new int(*n.z);
+    cout << "Copy const : " << x << " " << y << endl;
+    
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+
+dot::~dot()
+{
+    cout << "destructor started" << endl;
+    delete z;
+}
+/////////////////////////////////////////////////////////////////////////////////
+
+
+int main()
+{
+
+    dot d1(28,34,34);
+    dot d2(d1);
+    cout << d1.z << endl;
+    cout << d2.z << endl;
+
+
+    return 0;
+}

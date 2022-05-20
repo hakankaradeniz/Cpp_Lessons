@@ -40,11 +40,11 @@ int main()
     n2.writeScreen();
 
     if(n1.zero())
-        std::cout << " n1 is Zero" << std::endl;
+        std::cout << " n1 is Zero sdgsdgs" << std::endl;
 
 
     if(n2.zero())
-        std::cout << " n2 is Zero" << std::endl;
+        std::cout << " n2 is Zero sdgsdgsg" << std::endl;
 
     return 0;
 }
